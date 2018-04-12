@@ -1,0 +1,62 @@
+
+
+== 0.6
+
+
+=== New Features
+
+
+* [pipeline-api] Windowing support and overhaul of Pipeline API to work with streaming sources. https://github.com/hazelcast/hazelcast-jet/pull/731[#731]
+* [pipeline-api] New updating and merging map sinks which update the value in place. https://github.com/hazelcast/hazelcast-jet/pull/621[#621]
+* [pipeline-api] Custom sink builder support for Pipeline API. https://github.com/hazelcast/hazelcast-jet/pull/762[#762]
+* [core] Improved job lifecycle features such as naming jobs and getting jobs by name. https://github.com/hazelcast/hazelcast-jet/pull/666[#666]
+* [core] Ability to restart jobs manually to make use of newly joined members. https://github.com/hazelcast/hazelcast-jet/pull/693[#693]
+* [spring] Add support for annotation and XML based spring configuration. https://github.com/hazelcast/hazelcast-jet/pull/757[#757]
+
+
+
+=== Enhancements
+
+* [pipeline-api] Improve the method `AggregateOperations.allOf()` so that is type-safe.
+* [pipeline-api] Predictable vertex names when converting Pipelines to DAG. https://github.com/hazelcast/hazelcast-jet/pull/616[#616]
+* [pipeline-api] Add support for stateful transform operations in the pipeline API. https://github.com/hazelcast/hazelcast-jet/pull/744[#744]
+* [pipeline-api] Add ability to set parallelism and name of each stage separately. https://github.com/hazelcast/hazelcast-jet/pull/731[#731]
+* [pipeline-api] Add generic `Predicate` factory methods. https://github.com/hazelcast/hazelcast-jet/pull/695[#695]
+* [core] Support for idle streaming sources through a configurable idle timeout where idle processors are excluded from Watermark coalescing. https://github.com/hazelcast/hazelcast-jet/pull/660[#660]
+* [core] Add support for initializing processors with Hazelcast Managed Context. https://github.com/hazelcast/hazelcast-jet/pull/645[#645]
+* [core] Improve watermark coalescing and processing. https://github.com/hazelcast/hazelcast-jet/pull/649[#649]
+* [core] Make parallelism information available to `Processor.Context`. https://github.com/hazelcast/hazelcast-jet/pull/754[#754]
+* [core] Include Hazelcast Javadocs in Jet distribution. https://github.com/hazelcast/hazelcast-jet/pull/652[#652]
+* [core] Add Java 9 build support and automatic module names. https://github.com/hazelcast/hazelcast-jet/pull/720[#720]
+* [core] Add ability to emit file name from file sources. https://github.com/hazelcast/hazelcast-jet/pull/729[#729]
+* [core] Several Javadoc improvements.
+* [java.util.stream] New DistributedStream instances now can work with Pipeline API sources.
+* [kafka] Kafka version updated to 1.0.0.
+* [hadoop] Hadoop version updated to 2.8.3.
+
+=== Fixes
+
+* [core] Avoid race between job cancellation and completion. https://github.com/hazelcast/hazelcast-jet/pull/604[#604]
+* [core] Do not send a join request for a job unless Job.join() is explicitly called. https://github.com/hazelcast/hazelcast-jet/pull/628[#628]
+* [core] When master node leaves cluster, job would restart even if auto-restart was disabled. https://github.com/hazelcast/hazelcast-jet/pull/683[#683]
+* [core] When using map source, returning null in a projection would cause rest of the items to be dropped. https://github.com/hazelcast/hazelcast-jet/pull/669[#669]
+* [core] When DAG fails to deserialize on job submission from client, the exception was not returned to user. https://github.com/hazelcast/hazelcast-jet/pull/794[#794]
+* [core] Fix for `ClassNotFoundException` when restoring from snapshot when the key class is not on Jet classpath. https://github.com/hazelcast/hazelcast-jet/pull/778[#778]
+* [core] Assert that always same item offered to Outbox after a rejection. https://github.com/hazelcast/hazelcast-jet/pull/808[#808]
+* [kafka] Kafka sink should ensure that all records are sent before snapshot. https://github.com/hazelcast/hazelcast-jet/pull/611[#611]
+* [kafka/hadoop] Package names reorganized to have better support for module systems.
+
+
+=== Technical Changes
+
+* [pipeline-api] Grouping and aggregation in Pipeline API now are done through the methods `.groupingKey()` and `.aggregate()`.
+* [pipeline-api] Package names for Pipeline API have been reorganized.
+* [core] Job cancellation can now only be done through `Job.cancel()` rather than `Job.getFuture().cancel()`.
+* [core] IStreamMap, IStreamList and IStreamCache have been renamed to IMapJet, IListJet and ICacheJet, respectively.
+* [core] Dedicated `tryProcessWatermark()` method is now responsible for processing Watermarks in a processor and watermarks will be forwarded automatically once it returns true.
+* [core] `start-jet.sh`, `submit-jet.sh` and other scripts have been renamed to have prefix "jet" instead.
+* [core] `CloseableProcessorSupplier` has been replaced with a `close()` method on the Processor instead.
+* [core] `complete` methods on `ProcessorMetaSupplier` and `ProcessorSupplier` have been renamed to `close()`.
+* [java.util.stream] `DistributedStream` creation have been moved to `DistributedStream` class from Map and List instances. We strongly
+suggest to switch to Pipeline API instead of `java.util.stream` API.
+

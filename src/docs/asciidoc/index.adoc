@@ -13,13 +13,15 @@ include::attributes.adoc[]
 :stylesheet: stylesheets/hazelcast.css
 :toc: left
 :toc-title: Hazelcast Jet Release Notes
-:toclevels: 3
+:toclevels: 1
 
 Welcome to the Hazelcast Jet Release Notes. This document includes the new features, enhancements and fixed issues for Hazelcast Jet releases. Select a release number in the table of contents.
 
-The linked numbers in the square brackets refer to the issue number in Hazelcast Jet GitHub repository. The labels in the square brackets refer to the respective Hazelcast Jet module.
+The linked numbers refer to the issue numbers in Hazelcast Jet GitHub repository. The labels in the square brackets refer to the respective Hazelcast Jet module.
 
 :numbered!:
+
+include::0.6.adoc[]
 
 include::0.5.1.adoc[]
 

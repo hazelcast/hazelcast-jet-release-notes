@@ -4,13 +4,13 @@
 
 === Fixes
 
-- [pipeline-api] Generated vertex names are now deterministic instead of random. https://github.com/hazelcast/hazelcast-jet/pull/623[[#623]]
-- [pipeline-api] Vertex names for sources and sinks should now be more explicit. https://github.com/hazelcast/hazelcast-jet/pull/623[[#623]]
-- [core] `JetInstance.getJobs()` now only sends a join job request when `getFuture()` is called. https://github.com/hazelcast/hazelcast-jet/pull/633[[#633]]
-- [core] When configuring internal Jet maps, do not inherit default map configuration from Hazelcast. https://github.com/hazelcast/hazelcast-jet/pull/629[[#629]]
-- [core] Update schema version in default Hazelcast configuration XML file. https://github.com/hazelcast/hazelcast-jet/pull/627[[#627]]
-- [core] When peeking input and output of a processor, the logger name of the peeked processor should be used. https://github.com/hazelcast/hazelcast-jet/pull/617[[#617]]
-- [core] Fix race condition when calling `ProcessorSupplier.complete()` during job cancellation. https://github.com/hazelcast/hazelcast-jet/pull/604[[#604]]
-- [kafka] Kafka writer should flush when taking a snapshot. https://github.com/hazelcast/hazelcast-jet/pull/624[[#624]]
-- [javadoc] Replace Javadoc for `com.hazelcast.jet.function` and `com.hazelcast.jet.stream` with links to JDK docs. https://github.com/hazelcast/hazelcast-jet/pull/636[[#636]]
-- [javadoc] `AggregateOperations` Javadoc updates. https://github.com/hazelcast/hazelcast-jet/pull/635[[#635]]
+- [pipeline-api] Generated vertex names are now deterministic instead of random. https://github.com/hazelcast/hazelcast-jet/pull/623[#623]
+- [pipeline-api] Vertex names for sources and sinks should now be more explicit. https://github.com/hazelcast/hazelcast-jet/pull/623[#623]
+- [core] `JetInstance.getJobs()` now only sends a join job request when `getFuture()` is called. https://github.com/hazelcast/hazelcast-jet/pull/633[#633]
+- [core] When configuring internal Jet maps, do not inherit default map configuration from Hazelcast. https://github.com/hazelcast/hazelcast-jet/pull/629[#629]
+- [core] Update schema version in default Hazelcast configuration XML file. https://github.com/hazelcast/hazelcast-jet/pull/627[#627]
+- [core] When peeking input and output of a processor, the logger name of the peeked processor should be used. https://github.com/hazelcast/hazelcast-jet/pull/617[#617]
+- [core] Fix race condition when calling `ProcessorSupplier.complete()` during job cancellation. https://github.com/hazelcast/hazelcast-jet/pull/604[#604]
+- [kafka] Kafka writer should flush when taking a snapshot. https://github.com/hazelcast/hazelcast-jet/pull/624[#624]
+- [javadoc] Replace Javadoc for `com.hazelcast.jet.function` and `com.hazelcast.jet.stream` with links to JDK docs. https://github.com/hazelcast/hazelcast-jet/pull/636[#636]
+- [javadoc] `AggregateOperations` Javadoc updates. https://github.com/hazelcast/hazelcast-jet/pull/635[#635]

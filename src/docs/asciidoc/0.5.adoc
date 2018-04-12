@@ -5,27 +5,27 @@
 
 === New Features
 
-- [core] Support for in-memory snapshots and at-least and exactly-once processing. https://github.com/hazelcast/hazelcast-jet/pull/500[[#500]]
-- [core] New Pipeline API with support for group by, hash join and co group. https://github.com/hazelcast/hazelcast-jet/pull/497[[#497]]
-- [core] Improved Jet job lifecycle management including auto-restart. https://github.com/hazelcast/hazelcast-jet/pull/492[[#492]]
-- [core] Event journal streaming source for Map and Cache. https://github.com/hazelcast/hazelcast-jet/pull/487[[#487]]
+- [core] Support for in-memory snapshots and at-least and exactly-once processing. https://github.com/hazelcast/hazelcast-jet/pull/500[#500]
+- [core] New Pipeline API with support for group by, hash join and co group. https://github.com/hazelcast/hazelcast-jet/pull/497[#497]
+- [core] Improved Jet job lifecycle management including auto-restart. https://github.com/hazelcast/hazelcast-jet/pull/492[#492]
+- [core] Event journal streaming source for Map and Cache. https://github.com/hazelcast/hazelcast-jet/pull/487[#487]
 
 
 
 === Enhancements
 
 
-- [core] Add `ProcessorMetaSupplier.complete()` method to support global cleanup. https://github.com/hazelcast/hazelcast-jet/pull/571[[#571]]
-- [core] Socket source now uses non-blocking IO. https://github.com/hazelcast/hazelcast-jet/pull/554[[#554]]
-- [core] Add preferred local parallelism to all the sources and sinks. https://github.com/hazelcast/hazelcast-jet/pull/552[[#552]]
-- [core] `InsertWatermarksProcessor` will now log late events. https://github.com/hazelcast/hazelcast-jet/pull/551[[#551]]
-- [core] Add projection and predicate capability to map reader. https://github.com/hazelcast/hazelcast-jet/pull/490[[#490]]
-- [core] Hazelcast version is updated to 3.9. https://github.com/hazelcast/hazelcast-jet/pull/474[[#474]]
-- [java.util.stream] Support for creating a stream from any source. https://github.com/hazelcast/hazelcast-jet/pull/360[[#360]]
-- [kafka] Add ability to create own `ProducerRecord` instances for Kafka writer. https://github.com/hazelcast/hazelcast-jet/pull/588[[#588]]
-- [kafka] When a job, which includes Kafka source, is cancelled, `StreamKafkaP` throws `InterruptedException`. This exception should be prevented or it should give a descriptive log. https://github.com/hazelcast/hazelcast-jet/pull/570[[#570]]
-- [kafka] Add optional projection function to Kafka reader. https://github.com/hazelcast/hazelcast-jet/pull/534[[#534]]
-- [kafka] Add snapshotting support for Kafka reader. https://github.com/hazelcast/hazelcast-jet/pull/500[[#500]]
+- [core] Add `ProcessorMetaSupplier.complete()` method to support global cleanup. https://github.com/hazelcast/hazelcast-jet/pull/571[#571]
+- [core] Socket source now uses non-blocking IO. https://github.com/hazelcast/hazelcast-jet/pull/554[#554]
+- [core] Add preferred local parallelism to all the sources and sinks. https://github.com/hazelcast/hazelcast-jet/pull/552[#552]
+- [core] `InsertWatermarksProcessor` will now log late events. https://github.com/hazelcast/hazelcast-jet/pull/551[#551]
+- [core] Add projection and predicate capability to map reader. https://github.com/hazelcast/hazelcast-jet/pull/490[#490]
+- [core] Hazelcast version is updated to 3.9. https://github.com/hazelcast/hazelcast-jet/pull/474[#474]
+- [java.util.stream] Support for creating a stream from any source. https://github.com/hazelcast/hazelcast-jet/pull/360[#360]
+- [kafka] Add ability to create own `ProducerRecord` instances for Kafka writer. https://github.com/hazelcast/hazelcast-jet/pull/588[#588]
+- [kafka] When a job, which includes Kafka source, is cancelled, `StreamKafkaP` throws `InterruptedException`. This exception should be prevented or it should give a descriptive log. https://github.com/hazelcast/hazelcast-jet/pull/570[#570]
+- [kafka] Add optional projection function to Kafka reader. https://github.com/hazelcast/hazelcast-jet/pull/534[#534]
+- [kafka] Add snapshotting support for Kafka reader. https://github.com/hazelcast/hazelcast-jet/pull/500[#500]
 
 ==== Code Samples Improvements
 
@@ -38,17 +38,17 @@
 
 === Fixes
 
-- [core] The method `Job.getJobStatus()` does not reflect actual status during cancellation. https://github.com/hazelcast/hazelcast-jet/pull/580[[#580]]
-- [core] Add missing serializer for `Session` type. https://github.com/hazelcast/hazelcast-jet/pull/562[[#562]]
-- [core] The method `Traversers.traverseStream()` should close the stream when exhausted. https://github.com/hazelcast/hazelcast-jet/pull/560[[#560]]
-- [core] Kafka source should throw when partition count is less than global parallelism. https://github.com/hazelcast/hazelcast-jet/pull/559[[#559]]
-- [core] Suppress exception for flow control packet when the member has already left the cluster. https://github.com/hazelcast/hazelcast-jet/pull/556[[#556]]
-- [core] Fix the ignored charset in `StreamSocketP`. https://github.com/hazelcast/hazelcast-jet/pull/556[[#553]]
-- [core] `JetClassLoader` should not throw an exception on the method `findResource()`. https://github.com/hazelcast/hazelcast-jet/pull/549[[#549]]
-- [core] Add cache manager in order not to require a dependency on `javax.cache`. https://github.com/hazelcast/hazelcast-jet/pull/485[[#485]]
-- [core] Fix NPE when releasing uninitialized `ResourceStore`. https://github.com/hazelcast/hazelcast-jet/pull/478[[#478]]
-- [core] Replace `ReadFileStreamP` with batch file processor. https://github.com/hazelcast/hazelcast-jet/pull/373[[#373]]
-- [core] `ReadFileStreamP` should respect Outbox limit. https://github.com/hazelcast/hazelcast-jet/pull/337[[#337]]
-- [kafka] When init phase for the job fails, `StreamKafkaP` throws NPE. There should be a null check. https://github.com/hazelcast/hazelcast-jet/pull/568[[#568]]
-- [hdfs] Making sure a proper global cleanup is performed on job cancellation. https://github.com/hazelcast/hazelcast-jet/pull/572[[#572]]
+- [core] The method `Job.getJobStatus()` does not reflect actual status during cancellation. https://github.com/hazelcast/hazelcast-jet/pull/580[#580]
+- [core] Add missing serializer for `Session` type. https://github.com/hazelcast/hazelcast-jet/pull/562[#562]
+- [core] The method `Traversers.traverseStream()` should close the stream when exhausted. https://github.com/hazelcast/hazelcast-jet/pull/560[#560]
+- [core] Kafka source should throw when partition count is less than global parallelism. https://github.com/hazelcast/hazelcast-jet/pull/559[#559]
+- [core] Suppress exception for flow control packet when the member has already left the cluster. https://github.com/hazelcast/hazelcast-jet/pull/556[#556]
+- [core] Fix the ignored charset in `StreamSocketP`. https://github.com/hazelcast/hazelcast-jet/pull/556[#553]
+- [core] `JetClassLoader` should not throw an exception on the method `findResource()`. https://github.com/hazelcast/hazelcast-jet/pull/549[#549]
+- [core] Add cache manager in order not to require a dependency on `javax.cache`. https://github.com/hazelcast/hazelcast-jet/pull/485[#485]
+- [core] Fix NPE when releasing uninitialized `ResourceStore`. https://github.com/hazelcast/hazelcast-jet/pull/478[#478]
+- [core] Replace `ReadFileStreamP` with batch file processor. https://github.com/hazelcast/hazelcast-jet/pull/373[#373]
+- [core] `ReadFileStreamP` should respect Outbox limit. https://github.com/hazelcast/hazelcast-jet/pull/337[#337]
+- [kafka] When init phase for the job fails, `StreamKafkaP` throws NPE. There should be a null check. https://github.com/hazelcast/hazelcast-jet/pull/568[#568]
+- [hdfs] Making sure a proper global cleanup is performed on job cancellation. https://github.com/hazelcast/hazelcast-jet/pull/572[#572]
 

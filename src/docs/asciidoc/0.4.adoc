@@ -9,14 +9,14 @@
 - [core] Infinite stream processing with event-time semantics using watermarks.
 - [core] Out of the box processors for tumbling, sliding and session window aggregations. 
 - [core] New `AggregateOperation` abstraction with several out of the box aggregators.
-- [core] Bootstrapper script for submitting a JAR and running a DAG from it. https://github.com/hazelcast/hazelcast-jet/pull/421[[#421]]
+- [core] Bootstrapper script for submitting a JAR and running a DAG from it. https://github.com/hazelcast/hazelcast-jet/pull/421[#421]
 - [core] Sources and Sinks reorganized into Sources and Sinks static classes.
-- [core] Added `Sources.streamSocket()` and `Sinks.writeSocket()` for reading from and writing to sockets. https://github.com/hazelcast/hazelcast-jet/pull/358[[#358]], https://github.com/hazelcast/hazelcast-jet/pull/363[[#363]]
-- [core] Added `Sources.readFile()`, `Sources.streamFile()` and `Sources.writeFile()` for reading and writing files. https://github.com/hazelcast/hazelcast-jet/pull/373[[#373]], https://github.com/hazelcast/hazelcast-jet/pull/376[[#376]]
-- [core] Added `Sources.readCache()` and `Sinks.writeCache()` for reading from and writing to Hazelcast ICache. https://github.com/hazelcast/hazelcast-jet/pull/357[[#357]]
-- [core] Added diagnostic processors for debugging. https://github.com/hazelcast/hazelcast-jet/pull/426[[#426]]
+- [core] Added `Sources.streamSocket()` and `Sinks.writeSocket()` for reading from and writing to sockets. https://github.com/hazelcast/hazelcast-jet/pull/358[#358], https://github.com/hazelcast/hazelcast-jet/pull/363[#363]
+- [core] Added `Sources.readFile()`, `Sources.streamFile()` and `Sources.writeFile()` for reading and writing files. https://github.com/hazelcast/hazelcast-jet/pull/373[#373], https://github.com/hazelcast/hazelcast-jet/pull/376[#376]
+- [core] Added `Sources.readCache()` and `Sinks.writeCache()` for reading from and writing to Hazelcast ICache. https://github.com/hazelcast/hazelcast-jet/pull/357[#357]
+- [core] Added diagnostic processors for debugging. https://github.com/hazelcast/hazelcast-jet/pull/426[#426]
 
-- [java.util.stream] java.util.stream support for ICache. https://github.com/hazelcast/hazelcast-jet/pull/360[[#360]]
+- [java.util.stream] java.util.stream support for ICache. https://github.com/hazelcast/hazelcast-jet/pull/360[#360]
 - [pcf] Hazelcast Jet tile for Pivotal Cloud Foundry was released.
 
 
@@ -24,27 +24,27 @@
 === Enhancements
 
 
-- [core] Hazelcast IMDG updated to 3.8.2 and is now shaded in the Jet JAR. https://github.com/hazelcast/hazelcast-jet/pull/367[[#367]]
-- [core] Blocking outbox support for non-cooperative processors. https://github.com/hazelcast/hazelcast-jet/pull/372[[#372]], https://github.com/hazelcast/hazelcast-jet/pull/375[[#375]]
-- [core] `JobFuture` added to `Processor.Context`. https://github.com/hazelcast/hazelcast-jet/pull/381[[#381]]
-- [core] `Processor.Context.index()` renamed to `globalProcessorIndex()` and now returns a global index. https://github.com/hazelcast/hazelcast-jet/pull/405[[#405]]
-- [core] Fairer distribution of tasklets when number of cores is larger than number of tasklets in a job. https://github.com/hazelcast/hazelcast-jet/pull/443[[#443]]
-- [java.util.stream] Added configuration option to `DistributedStream`. https://github.com/hazelcast/hazelcast-jet/pull/359[[#359]]
+- [core] Hazelcast IMDG updated to 3.8.2 and is now shaded in the Jet JAR. https://github.com/hazelcast/hazelcast-jet/pull/367[#367]
+- [core] Blocking outbox support for non-cooperative processors. https://github.com/hazelcast/hazelcast-jet/pull/372[#372], https://github.com/hazelcast/hazelcast-jet/pull/375[#375]
+- [core] `JobFuture` added to `Processor.Context`. https://github.com/hazelcast/hazelcast-jet/pull/381[#381]
+- [core] `Processor.Context.index()` renamed to `globalProcessorIndex()` and now returns a global index. https://github.com/hazelcast/hazelcast-jet/pull/405[#405]
+- [core] Fairer distribution of tasklets when number of cores is larger than number of tasklets in a job. https://github.com/hazelcast/hazelcast-jet/pull/443[#443]
+- [java.util.stream] Added configuration option to `DistributedStream`. https://github.com/hazelcast/hazelcast-jet/pull/359[#359]
 
 ==== Code Samples Improvements
 
-- Sliding window Stock exchange streaming sample. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/19[[#19]], https://github.com/hazelcast/hazelcast-jet-code-samples/pull/21[[#21]]
-- Hazelcast IMap/IList/ICache sample. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/16[[#16]]
-- PCF-integration with Spring Boot sample. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/17[[#17]]
-- Socket reader and writer examples with Netty. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/15[[#15]]
-- Read and write files example. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/24[[#24]]
-- Top N streaming example. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/27[[#27]]
-- HashJoin and CoGroup samples added. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/28[[#28]], https://github.com/hazelcast/hazelcast-jet-code-samples/pull/29[[#29]]
+- Sliding window Stock exchange streaming sample. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/19[#19], https://github.com/hazelcast/hazelcast-jet-code-samples/pull/21[#21]
+- Hazelcast IMap/IList/ICache sample. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/16[#16]
+- PCF-integration with Spring Boot sample. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/17[#17]
+- Socket reader and writer examples with Netty. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/15[#15]
+- Read and write files example. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/24[#24]
+- Top N streaming example. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/27[#27]
+- HashJoin and CoGroup samples added. https://github.com/hazelcast/hazelcast-jet-code-samples/pull/28[#28], https://github.com/hazelcast/hazelcast-jet-code-samples/pull/29[#29]
 
 
 === Fixes
 
-- [core] Missing return value for `JobConfig.addJar()`. https://github.com/hazelcast/hazelcast-jet/pull/393[[#393]]
-- [core] Improve reliability of `ExecutionService` on shutdown. https://github.com/hazelcast/hazelcast-jet/pull/409[[#409]]
-- [core] Metaspace memory was not recovered fully when custom class loader is used. https://github.com/hazelcast/hazelcast-jet/pull/466[[#466]]
+- [core] Missing return value for `JobConfig.addJar()`. https://github.com/hazelcast/hazelcast-jet/pull/393[#393]
+- [core] Improve reliability of `ExecutionService` on shutdown. https://github.com/hazelcast/hazelcast-jet/pull/409[#409]
+- [core] Metaspace memory was not recovered fully when custom class loader is used. https://github.com/hazelcast/hazelcast-jet/pull/466[#466]
 

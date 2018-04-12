@@ -8,14 +8,14 @@
 
 === Enhancements
 
-- [core] Improved DAG.toString. https://github.com/hazelcast/hazelcast-jet/pull/310[[#310]]
-- [core] Convenience to make any processor non-cooperative. https://github.com/hazelcast/hazelcast-jet/pull/321[[#321]]
-- [core] Updated Hazelcast version to 3.8. https://github.com/hazelcast/hazelcast-jet/pull/323/files[[#323]]
-- [core] Added missing functional interfaces to the Distributed class. https://github.com/hazelcast/hazelcast-jet/pull/324[[#324]]
-- [java.util.stream] Refactoring of Jet collectors into the new type `Reducer`. https://github.com/hazelcast/hazelcast-jet/pull/313[[#313]]
-- [java.util.stream] Allow branching of the j.u.s pipeline. https://github.com/hazelcast/hazelcast-jet/pull/318[[#318]]
+- [core] Improved DAG.toString. https://github.com/hazelcast/hazelcast-jet/pull/310[#310]
+- [core] Convenience to make any processor non-cooperative. https://github.com/hazelcast/hazelcast-jet/pull/321[#321]
+- [core] Updated Hazelcast version to 3.8. https://github.com/hazelcast/hazelcast-jet/pull/323/files[#323]
+- [core] Added missing functional interfaces to the Distributed class. https://github.com/hazelcast/hazelcast-jet/pull/324[#324]
+- [java.util.stream] Refactoring of Jet collectors into the new type `Reducer`. https://github.com/hazelcast/hazelcast-jet/pull/313[#313]
+- [java.util.stream] Allow branching of the j.u.s pipeline. https://github.com/hazelcast/hazelcast-jet/pull/318[#318]
 - [hadoop] Added support for reading and writing non-text data from or to HDFS. Please refer to the https://github.com/hazelcast/hazelcast-jet-reference-manual/blob/master/src/Modules.md#hazelcast-jet-hadoop[hazelcast-jet-hadoop documentation] for details.
-- [hadoop] Added key/value mappers for ReadHdfsP and WriteHdfsP. https://github.com/hazelcast/hazelcast-jet/pull/328[[#328]]
+- [hadoop] Added key/value mappers for ReadHdfsP and WriteHdfsP. https://github.com/hazelcast/hazelcast-jet/pull/328[#328]
 - [kafka] Kafka connector now makes use of consumer groups. Please refer to the https://github.com/hazelcast/hazelcast-jet-reference-manual/blob/master/src/Modules.md#hazelcast-jet-kafka[hazelcast-jet-kafka documentation].
 
 ==== Code Samples Improvements
@@ -27,7 +27,7 @@
 
 === Fixes
 
-- [core] Remove dead and potentially racy code from async operations. https://github.com/hazelcast/hazelcast-jet/pull/320[[#320]]
-- [core] ReadSocketTextStreamP should emit items immediately after reading. https://github.com/hazelcast/hazelcast-jet/pull/335[[#335]]
-- [core] Wrong configuration file is used for IMDG when Jet config file present in classpath. https://github.com/hazelcast/hazelcast-jet/pull/345[[#345]]
-- [java.util.stream] Do not require forEach action to be serializable. https://github.com/hazelcast/hazelcast-jet/pull/340[[#340]], https://github.com/hazelcast/hazelcast-jet/pull/341[[#341]]
+- [core] Remove dead and potentially racy code from async operations. https://github.com/hazelcast/hazelcast-jet/pull/320[#320]
+- [core] ReadSocketTextStreamP should emit items immediately after reading. https://github.com/hazelcast/hazelcast-jet/pull/335[#335]
+- [core] Wrong configuration file is used for IMDG when Jet config file present in classpath. https://github.com/hazelcast/hazelcast-jet/pull/345[#345]
+- [java.util.stream] Do not require forEach action to be serializable. https://github.com/hazelcast/hazelcast-jet/pull/340[#340], https://github.com/hazelcast/hazelcast-jet/pull/341[#341]
