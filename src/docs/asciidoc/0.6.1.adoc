@@ -1,0 +1,25 @@
+
+
+== 0.6.1
+
+
+=== New Features
+
+* [core] Add support for configuring a custom classloader per job. https://github.com/hazelcast/hazelcast-jet/pull/770[#770]
+
+
+=== Enhancements
+
+* [pipeline-api] Add a noop sink. https://github.com/hazelcast/hazelcast-jet/pull/827[#827]
+* [core] Utility methods to load JetConfig from XML file or resource directly. https://github.com/hazelcast/hazelcast-jet/pull/856[#856]
+* [core] Update Hazelcast IMDG references to "3.10". https://github.com/hazelcast/hazelcast-jet/pull/833[#833]
+* [core] Optimize in-memory layout of snapshot data: reduced memory usage by up to 75%. https://github.com/hazelcast/hazelcast-jet/pull/822[#822]
+* [core] Idle CPU usage improvements when there's a large number of non-cooperative processors. https://github.com/hazelcast/hazelcast-jet/pull/816[#816]
+
+=== Fixes
+
+* [pipeline-api] SinkBuilder shouldn't call destroyFn if createFn wasn't called https://github.com/hazelcast/hazelcast-jet/pull/826[#826]
+* [pipeline-api] Fix generic output type for aggregate operations with a custom `mapToOutputFn`. https://github.com/hazelcast/hazelcast-jet/pull/823[#823]
+* [core] Don't shrink receive window during lulls which can lead to reduced throughput. https://github.com/hazelcast/hazelcast-jet/pull/798[#798]
+* [kafka] Kafka source should handle InterruptException in all cases. https://github.com/hazelcast/hazelcast-jet/issues/824[#824]
+* [hadoop] When matching HDFS hostnames against member hostnames, use alternative ways than just reverse DNS. https://github.com/hazelcast/hazelcast-jet/pull/858[#858]

@@ -1,2 +1,6 @@
 # generated content
 static/
+
+build/
+.idea/
+.gradle/

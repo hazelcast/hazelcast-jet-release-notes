@@ -1,0 +1,35 @@
+include::attributes.adoc[]
+= Hazelcast Jet Release Notes
+:icons: font
+:idprefix:
+:idseparator: -
+:imagesdir: images
+:safe-mode: SECURE
+:sectanchors:
+:sectlinks:
+:source-highlighter: coderay
+:source-indent: 0
+:source-language: java
+:stylesheet: stylesheets/hazelcast.css
+:toc: left
+:toc-title: Hazelcast Jet Release Notes
+:toclevels: 1
+
+Welcome to the Hazelcast Jet Release Notes. This document includes the new features, enhancements and fixed issues for Hazelcast Jet releases. Select a release number in the table of contents.
+
+The linked numbers refer to the issue numbers in Hazelcast Jet GitHub repository. The labels in the square brackets refer to the respective Hazelcast Jet module.
+
+:numbered!:
+
+include::0.6.1.adoc[]
+
+include::0.6.adoc[]
+
+include::0.5.1.adoc[]
+
+include::0.5.adoc[]
+
+include::0.4.adoc[]
+
+include::0.3.1.adoc[]
+
