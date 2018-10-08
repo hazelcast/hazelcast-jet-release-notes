@@ -2,16 +2,46 @@
 
 == 0.7
 
-
 === New Features
 
-* [???] ???. https://github.com/hazelcast/hazelcast-jet/???/???[#???]
-
+* [pipeline-api] Added a source builder to build custom sources. https://github.com/hazelcast/hazelcast-jet/pull/989[#989]
+* [pipeline-api] Added JDBC connector to enable Jet reading from/writing to JDBC source. https://github.com/hazelcast/hazelcast-jet/pull/931[#931]
+* [pipeline-api] Added Avro connector to work with Avro files. https://github.com/hazelcast/hazelcast-jet/pull/890[#890], https://github.com/hazelcast/hazelcast-jet/pull/925[#925]
+* [pipeline-api] Added convenient API to enrich a stream from IMap and Replicated Map. https://github.com/hazelcast/hazelcast-jet/pull/924[#924]
+* [pipeline-api] Added map/flatMap/filterUsingContext for keyed streams. https://github.com/hazelcast/hazelcast-jet/pull/892[#892]
+* [pipeline-api] Introduced new merge and distinct operations and a simpler co-aggregation. https://github.com/hazelcast/hazelcast-jet/pull/885[#885]
+* [pipeline-api] Added JMS connector to enable Jet reading from/writing to JMS provider. https://github.com/hazelcast/hazelcast-jet/pull/874[#874]
+* [core] Added full job elasticity with graceful shutdown, and suspend and resume. https://github.com/hazelcast/hazelcast-jet/pull/946[#946]
+* [core] Added support for exposing metrics through JMX. https://github.com/hazelcast/hazelcast-jet/pull/926[#926]
 
 === Enhancements
 
-*
- 
+* [pipeline-api] Added Tuple4 and Tuple5. https://github.com/hazelcast/hazelcast-jet/pull/964[#964]
+* [pipeline-api] Added the method `AggregateOperation.andThen`. https://github.com/hazelcast/hazelcast-jet/pull/959[#959]
+* [pipeline-api] Added exception throwing methods to distributed lambdas. https://github.com/hazelcast/hazelcast-jet/pull/951[#951]
+* [pipeline-api] The method `mapToOutputFn` in aggregations now supports returning nulls. https://github.com/hazelcast/hazelcast-jet/pull/938[#938]
+* [pipeline-api] File sources and sinks have been converted to use builders for more convenience. https://github.com/hazelcast/hazelcast-jet/pull/913[#913]
+* [pipeline-api] Added a new String parameter `name` to `Sinks.builder`. https://github.com/hazelcast/hazelcast-jet/pull/894[#894]
+* [pipeline-api] Added support for DOT file visualization for DAG and Pipeline API. https://github.com/hazelcast/hazelcast-jet/pull/891[#891]
+* [core] Added `JetClientConfig` which uses the default Jet group name and password. https://github.com/hazelcast/hazelcast-jet/pull/950[#950]
+* [core] Logs now provide job names. https://github.com/hazelcast/hazelcast-jet/pull/939[#939]
+* [core] Improved `Processor`s so that they are now closed as soon as the processor is completed. Also, `jobId()`, `executionId()` and `jobConfig()` are now available on `Processor.Context`. https://github.com/hazelcast/hazelcast-jet/pull/934[#934]
+* [core] Improved Watermark diagnostics logging. https://github.com/hazelcast/hazelcast-jet/pull/872[#872]
+
 === Fixes
 
-* 
+* [pipeline-api] Fixed the method `mapWithMerging` which should have not used a stateful flush function. https://github.com/hazelcast/hazelcast-jet/issues/968[#968]
+* [pipeline-api] Fixed the issue of causing a window shift when using the results of a window aggregation in another window. https://github.com/hazelcast/hazelcast-jet/issues/898[#898]
+* [kafka] `StreamKafkaP.close()` now handles `InterruptException`. https://github.com/hazelcast/hazelcast-jet/issues/870[#870]
+* [java.util.stream] Removed `java.util.stream` implementation. It has been superseded by the Pipeline API. https://github.com/hazelcast/hazelcast-jet/issues/983[#983]
+* [spring] Spring context is now injected to the wrapped processors as well to enable the `@SpringAware` annotation to be processed for sinks. https://github.com/hazelcast/hazelcast-jet/issues/999[#999]
+* [spring] An `IllegalArgumentException` was thrown because the `hazelcast-jet-spring` module was adding a dependency to Hazelcast when used with Spring boot. This has been fixed so that `hazelcast-jet-spring` works out of the box. https://github.com/hazelcast/hazelcast-jet/issues/977[#977]
+
+=== Breaking Changes
+
+* [pipeline-api] Simplified the API for co-aggregation.
+* [pipeline-api] Replaced file sources and sinks with a builder API through `Sources.filesBuilder()`.
+* [pipeline-api] `SinkBuilder` now requires a name and takes `Processor.Context` as input in `createFn`.
+* [core] Removed `AbstractProcessor.setCooperative`.
+* [core] Removed `tempDir` from config as it was unused.
+* [core] `Processor.close()` no longer receives the exception for the job.
