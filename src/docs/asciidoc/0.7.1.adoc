@@ -1,0 +1,21 @@
+
+
+== 0.7.1
+
+=== New Features
+
+* [kubernetes] Added full support to run Hazelcast Jet on Kubernetes. See the https://docs.hazelcast.org/docs/jet/0.7.1/manual/index.html#deployment-using-kubernetes[Deployment using Kubernetes section] for more information.
+* [kubernetes] Introduced Hazelcast Jet Helm Charts. See the https://docs.hazelcast.org/docs/jet/0.7.1/manual/index.html#deployment-using-kubernets[Deployment using Helm section] for more information.
+
+=== Enhancements
+
+* [pipeline-api] Added TopN and BottomN aggregate operations. https://github.com/hazelcast/hazelcast-jet/pull/1140[#1140]
+
+=== Fixes
+
+* [pipeline-api] All of `ClientConfig` must be serialized when connecting to remote IMDG sources and sinks. https://github.com/hazelcast/hazelcast-jet/pull/1147[#1147]
+* [core] `scaleUpDelay` now can be configured declaratively or within the Spring context. https://github.com/hazelcast/hazelcast-jet/pull/1148[#1148]
+* [core] Watermarks are now not added to a stream if there are no windowing stages. https://github.com/hazelcast/hazelcast-jet/pull/1144[#1144]
+* [core] Distinct keys in `SessionWindowP` are now not materialized. https://github.com/hazelcast/hazelcast-jet/pull/1121[#1121]
+* [core] Fixed an issue where there was a significant lambda memory allocation pressure inside `ProcessorTasklet` and `StoreSnapshotTaskletExtract`. https://github.com/hazelcast/hazelcast-jet/issues/1106[#1106]
+* [core] Fixed an issue where there was a race condition during the snapshot creation, which could result in the snapshot to be not completed. https://github.com/hazelcast/hazelcast-jet/issues/1101[#1101]
