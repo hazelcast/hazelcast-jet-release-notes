@@ -1,6 +1,6 @@
 
 
-== 0.7.1
+== 0.7.2
 
 === New Features
 
@@ -13,9 +13,12 @@
 
 === Fixes
 
+* [core] Fixed the missing config schema file in the previous release (0.7.1).
 * [pipeline-api] All of `ClientConfig` must be serialized when connecting to remote IMDG sources and sinks. https://github.com/hazelcast/hazelcast-jet/pull/1147[#1147]
 * [core] `scaleUpDelay` now can be configured declaratively or within the Spring context. https://github.com/hazelcast/hazelcast-jet/pull/1148[#1148]
 * [core] Watermarks are now not added to a stream if there are no windowing stages. https://github.com/hazelcast/hazelcast-jet/pull/1144[#1144]
 * [core] Distinct keys in `SessionWindowP` are now not materialized. https://github.com/hazelcast/hazelcast-jet/pull/1121[#1121]
 * [core] Fixed an issue where there was a significant lambda memory allocation pressure inside `ProcessorTasklet` and `StoreSnapshotTaskletExtract`. https://github.com/hazelcast/hazelcast-jet/issues/1106[#1106]
 * [core] Fixed an issue where there was a race condition during the snapshot creation, which could result in the snapshot to be not completed. https://github.com/hazelcast/hazelcast-jet/issues/1101[#1101]
+
+IMPORTANT: Due to an issue related to XML schema files and the way they are validated, Hazelcast Jet 0.7.1 was released but broken. Hazelcast Jet 0.7.2 has been released on top of 0.7.1 with the related fix.
