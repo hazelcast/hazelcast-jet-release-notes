@@ -4,8 +4,8 @@
 
 === New Features
 
-* [kubernetes] Added full support to run Hazelcast Jet on Kubernetes. See the https://docs.hazelcast.org/docs/jet/0.7.1/manual/index.html#deployment-using-kubernetes[Deployment using Kubernetes section] for more information.
-* [kubernetes] Introduced Hazelcast Jet Helm Charts. See the https://docs.hazelcast.org/docs/jet/0.7.1/manual/index.html#deployment-using-kubernets[Deployment using Helm section] for more information.
+* [kubernetes] Added full support to run Hazelcast Jet on Kubernetes. See the https://docs.hazelcast.org/docs/jet/0.7.2/manual/index.html#deployment-using-kubernetes[Deployment using Kubernetes section] for more information.
+* [kubernetes] Introduced Hazelcast Jet Helm Charts. See the https://docs.hazelcast.org/docs/jet/0.7.2/manual/index.html#deployment-using-helm[Deployment using Helm section] for more information.
 
 === Enhancements
 
