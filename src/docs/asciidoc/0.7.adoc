@@ -25,7 +25,7 @@
 * [pipeline-api] Added support for DOT file visualization for DAG and Pipeline API. https://github.com/hazelcast/hazelcast-jet/pull/891[#891]
 * [core] Added `JetClientConfig` which uses the default Jet group name and password. https://github.com/hazelcast/hazelcast-jet/pull/950[#950]
 * [core] Logs now provide job names. https://github.com/hazelcast/hazelcast-jet/pull/939[#939]
-* [core] Improved `Processor`s so that they are now closed as soon as the processor is completed. Also, `jobId()`, `executionId()` and `jobConfig()` are now available on `Processor.Context`. https://github.com/hazelcast/hazelcast-jet/pull/934[#934]
+* [core] Improved ``Processor``s so that they are now closed as soon as the processor is completed. Also, `jobId()`, `executionId()` and `jobConfig()` are now available on `Processor.Context`. https://github.com/hazelcast/hazelcast-jet/pull/934[#934]
 * [core] Improved Watermark diagnostics logging. https://github.com/hazelcast/hazelcast-jet/pull/872[#872]
 
 === Fixes

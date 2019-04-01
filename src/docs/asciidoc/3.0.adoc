@@ -1,0 +1,98 @@
+== 3.0
+
+=== New Features
+
+* [jet-enterprise] Added support for the job upgrades which allows updating the jobs by preserving their states.
+See the https://docs.hazelcast.org/docs/jet/3.0/manual/#upgrading-job-without-losing-state[Upgrading Job without Losing State section].
+* [jet-enterprise] Added support to restart the Jet cluster and restoring the jobs by (lossless recovery) using
+Hazelcast IMDG's Hot Restart Store feature to persist the cluster to the disk. See the
+https://docs.hazelcast.org/docs/jet/3.0/manual/#configure-lossless-cluster-restart-enterprise-only[Configure Lossless Cluster Restart section].
+* [pipeline-api] Added support for asynchronous `map`, `filter` and `flatMapUsingContext` methods. See the
+https://docs.hazelcast.org/docs/jet/3.0/manual/#map-using-context[Look Up From an External System section].
+* [pipeline-api] Added support for emitting early results for a window before a window has completed. See the
+https://docs.hazelcast.org/docs/jet/3.0/manual/#get-early-results-before-the-window-is-complete[Get Early Results Before the Window is Complete section].
+* [core] Introduced the new command line interface, i.e., `jet.sh`, for job management in a cluster. See the
+https://docs.hazelcast.org/docs/jet/3.0/manual/#jet-command-line-tool[Jet Command Line Tool section].
+* [core] Added support for exclusive job execution which allows to have just one running named job
+in the cluster, even after multiple submissions. See the
+https://docs.hazelcast.org/docs/jet/3.0/manual/#jobconfig[JobConfig section].
+* [core] Updated the embedded Hazelcast IMDG version to 3.12.
+https://github.com/hazelcast/hazelcast-jet/pull/1343[#1343]
+
+=== Enhancements
+
+* [pipeline-api] User code deployment is not required anymore, when reading from remote Hazelcast IMDG journal.
+https://github.com/hazelcast/hazelcast-jet/pull/1306[#1306]
+* [pipeline-api] Improved the performance of global aggregations by using constant 
+and randomly generated key for each aggregation. https://github.com/hazelcast/hazelcast-jet/pull/1242[#1242]
+* [pipeline-api] Optimized `mapWithMerging` so that it uses less memory.
+https://github.com/hazelcast/hazelcast-jet/pull/1107[#1107]
+* [pipeline-api] Improved the watermark concept to eliminate generating excessive
+amount of watermarks when you have a timestamped pipeline which does not do any windowing.
+https://github.com/hazelcast/hazelcast-jet/pull/1091[#1091]
+* [core] Improved the exception when `JetBootstrap` is used without Jet CLI's `submit` command.
+https://github.com/hazelcast/hazelcast-jet/pull/1321[#1321]
+* [core] Minimum idle time in the execution service has been made configurable.
+https://github.com/hazelcast/hazelcast-jet/pull/1317[#1317]
+* [core] Added partition migration detection so that the jobs are automatically restarted
+if a partition is being migrated when reading from IMap.
+https://github.com/hazelcast/hazelcast-jet/pull/1243[#1243]
+* [core] The Jet client is now automatically shut down when using `JetBootstrap`.
+https://github.com/hazelcast/hazelcast-jet/pull/1225[#1225]
+* [core] Added support for JDK9-11 builds. https://github.com/hazelcast/hazelcast-jet/pull/1223[#1223]
+* [core] Added new metrics to monitor watermarks and latencies.
+https://github.com/hazelcast/hazelcast-jet/pull/1173[#1173]
+* [core] Added the ability to reusing the same maps when taking snapshots.
+https://github.com/hazelcast/hazelcast-jet/pull/1104[#1104]
+
+=== Fixes
+
+* [core] Fixed the potential race during the initialization of multiple ``JetInstance``s.
+https://github.com/hazelcast/hazelcast-jet/pull/1322[#1322]
+* [core] Simplified and fixed the garbage collection for job resources.
+https://github.com/hazelcast/hazelcast-jet/pull/1320[#1320]
+* [core] Fixed the race condition in the cooperative worker shutdown.
+https://github.com/hazelcast/hazelcast-jet/pull/1296[#1296]
+* [core] Fixed an issue where the mutation of `JobConfig` objects was affecting
+the job after the job is submitted. https://github.com/hazelcast/hazelcast-jet/pull/1233[#1233]
+* [core] Fixed an issue where the non-smart clients cannot submit a job if they connect to a non-master member.
+https://github.com/hazelcast/hazelcast-jet/pull/1129[#1129]
+* [pipeline-api] Fixed the local parallelism value for global session windows; it is now `1`.
+https://github.com/hazelcast/hazelcast-jet/pull/1300[#1300]
+* [hadoop] Fixed the creation of `RecordWriter` to receive its own copy.
+https://github.com/hazelcast/hazelcast-jet/pull/1309[#1309]
+
+=== Breaking Changes
+
+* [pipeline-api] Removed `TimestampedItem` and `TimestampedEntry`.
+https://github.com/hazelcast/hazelcast-jet/pull/1307[#1307]
+* [pipeline-api] Renamed functional interfaces such as `DistributedFunction` as `FunctionEx`
+and removed the unused functional interfaces.
+https://github.com/hazelcast/hazelcast-jet/pull/1293[#1293]
+* [pipeline-api] Simplified `mapUsingIMap` and `mapUsingReplicated` map operations to make use of async calls.
+https://github.com/hazelcast/hazelcast-jet/pull/1292[#1292]
+* [pipeline-api] Renamed various methods in `ContextFactory`.
+https://github.com/hazelcast/hazelcast-jet/pull/1285[#1285]
+* [pipeline-api] Window operators now emit `KeyedWindowResult` or `WindowResult` instead of `TimestampedItem` or `TimestampedEntry`.
+https://github.com/hazelcast/hazelcast-jet/pull/1244[#1244]
+* [pipeline-api] Removed `DistributedFunction.constantKey()`.
+https://github.com/hazelcast/hazelcast-jet/pull/1242[#1242]
+* [pipeline-api] When reading from a source, you must now specify how the timestamps should be handled.
+https://github.com/hazelcast/hazelcast-jet/pull/1166[#1166]
+* [core-api] Added a constant key parameter to `Edge.allToOne()`.
+https://github.com/hazelcast/hazelcast-jet/pull/1242[#1242]
+* [core-api] Removed the watermark policies except `limitingLag`.
+https://github.com/hazelcast/hazelcast-jet/pull/1184[#1184]
+* [core-api] Removed `maxRetain` option from `EdgeConfig`.
+https://github.com/hazelcast/hazelcast-jet/pull/1184[#1184]
+* [core] Added an exception to be thrown if a job with the same name already exists when submitting jobs.
+https://github.com/hazelcast/hazelcast-jet/pull/1203[#1203]
+* [core] Introduced the `jet.sh submit` command which supersedes the `jet-submit.sh` script.
+https://github.com/hazelcast/hazelcast-jet/pull/1202[#1202]
+* [core] Renamed `MetricsConfig.setMetricsForDataStructures` to `setMetricsForDataStructuresEnabled`.
+https://github.com/hazelcast/hazelcast-jet/pull/1201[#1201]
+
+=== Removed/Deprecated Features
+
+* [core] Group password has been deprecated and removed.
+https://github.com/hazelcast/hazelcast-jet/pull/1302[#1302]

@@ -1,10 +1,6 @@
-
-
 == 0.6
 
-
 === New Features
-
 
 * [pipeline-api] Windowing support and overhaul of Pipeline API to work with streaming sources. https://github.com/hazelcast/hazelcast-jet/pull/731[#731]
 * [pipeline-api] New updating and merging map sinks which update the value in place. https://github.com/hazelcast/hazelcast-jet/pull/621[#621]
@@ -12,8 +8,6 @@
 * [core] Improved job lifecycle features such as naming jobs and getting jobs by name. https://github.com/hazelcast/hazelcast-jet/pull/666[#666]
 * [core] Ability to restart jobs manually to make use of newly joined members. https://github.com/hazelcast/hazelcast-jet/pull/693[#693]
 * [spring] Add support for annotation and XML based spring configuration. https://github.com/hazelcast/hazelcast-jet/pull/757[#757]
-
-
 
 === Enhancements
 
@@ -59,4 +53,3 @@
 * [core] `complete` methods on `ProcessorMetaSupplier` and `ProcessorSupplier` have been renamed to `close()`.
 * [java.util.stream] `DistributedStream` creation have been moved to `DistributedStream` class from Map and List instances. We strongly
 suggest to switch to Pipeline API instead of `java.util.stream` API.
-
