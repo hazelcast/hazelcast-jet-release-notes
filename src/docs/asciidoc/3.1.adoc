@@ -1,0 +1,66 @@
+== 3.1
+
+=== New Features
+
+* [pipeline-api] Enabled composite transforms using the `apply` operator.
+https://github.com/hazelcast/hazelcast-jet/pull/1352[#1352]
+* [pipeline-api] Added support for fault tolerant sources to the `SourceBuilder` API
+https://github.com/hazelcast/hazelcast-jet/pull/1394[#1394]
+* [core] Added support for configuring in YAML.
+https://github.com/hazelcast/hazelcast-jet/pull/1371[#1371]
+* [integration] Introduced https://github.com/hazelcast/hazelcast-jet-contrib/tree/master/elasticsearch[source and sink] for Elasticsearch.
+* [integration] Introduced https://github.com/hazelcast/hazelcast-jet-contrib/tree/master/influxdb[source and sink] for InfluxDB.
+* [beam] Released the first https://beam.apache.org/documentation/runners/jet/[Hazelcast Jet Beam Runner].
+
+=== Enhancements
+
+* [pipeline-api] Added new `AggregateOperations`: `filtering` and `flatMapping`.
+https://github.com/hazelcast/hazelcast-jet/pull/1369[#1369]
+* [pipeline-api] Consecutive transform stages are now merged into one vertex during the execution.
+https://github.com/hazelcast/hazelcast-jet/pull/1325[#1325]
+* [pipeline-api] Hash-join operator now supports non-distinct keys on the secondary inputs.
+https://github.com/hazelcast/hazelcast-jet/pull/1327[#1327]
+* [pipeline-api] Idle timeout for streaming sources are now configurable using `StreamSource.setPartitionIdleTimeout()`.
+https://github.com/hazelcast/hazelcast-jet/pull/1328[#1328]
+* [pipeline-api] Performed optimizations for batch grouping
+operator to release the memory eagerly.
+https://github.com/hazelcast/hazelcast-jet/pull/1345[#1345]
+* [kafka] Updated Kafka client to version 2.2.
+
+=== Fixes
+
+* [jet-cli] Improved the parsing of command line arguments for `jet.sh`.
+https://github.com/hazelcast/hazelcast-jet/pull/1409[#1409],
+https://github.com/hazelcast/hazelcast-jet/pull/1411[#1411],
+https://github.com/hazelcast/hazelcast-jet/pull/1449[#1449]
+* [core] Improved the handling of errors if the operation packets are lost.
+https://github.com/hazelcast/hazelcast-jet/pull/1377[#1377],
+https://github.com/hazelcast/hazelcast-jet/pull/1435[#1435]
+* [core] Configured classloader in the Hazelcast configuration is now set
+as the parent of job classloader.
+https://github.com/hazelcast/hazelcast-jet/pull/1395[#1395]
+* [core] Job classloader now prints a warning if it's used after a job is completed.
+https://github.com/hazelcast/hazelcast-jet/pull/1315[#1315],
+https://github.com/hazelcast/hazelcast-jet/pull/1446[#1446]
+* [core] Snapshot creation is now handled gracefully even if the execution
+is already completed on a member.
+https://github.com/hazelcast/hazelcast-jet/pull/1397[#1397]
+* [core] Added check to ensure that any explicit Hazelcast IMDG
+dependency has the same version as the shaded one.
+https://github.com/hazelcast/hazelcast-jet/pull/1412[#1412]
+* [core] Fixed a `StackOverFlowError` when a very long path in DAG is used.
+https://github.com/hazelcast/hazelcast-jet/pull/1430[#1430]
+* [kafka] Improved the Kafka source responsiveness when the broker is down.
+https://github.com/hazelcast/hazelcast-jet/pull/1429[#1429]
+* [kafka] Improved the handling of `TimeoutException` in Kafka sink.
+https://github.com/hazelcast/hazelcast-jet/pull/1433[#1433]
+
+=== Breaking Changes
+
+* [pipeline-api] Previously it was possible to close the buffer in
+`SourceBuilder` when building a streaming source. However, a streaming
+source by definition should never close. The `buffer.close()` method now throws
+an exception when called inside a streaming source.
+https://github.com/hazelcast/hazelcast-jet/pull/1394[#1394]
+* [core] Signatures of `SourceProcessors.convenientSourceP` and `convenientTimestampedSourceP` have been updated to support fault tolerance.
+https://github.com/hazelcast/hazelcast-jet/pull/1394[#1394]

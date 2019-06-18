@@ -26,6 +26,8 @@ The linked numbers refer to the issue numbers in Hazelcast Jet GitHub repository
 
 :numbered!:
 
+include::3.1.adoc[]
+
 include::3.0.adoc[]
 
 include::0.7.2.adoc[]
