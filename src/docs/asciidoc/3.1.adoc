@@ -4,7 +4,7 @@
 
 * [pipeline-api] Enabled composite transforms using the `apply` operator.
 https://github.com/hazelcast/hazelcast-jet/pull/1352[#1352]
-* [pipeline-api] Added support for fault tolerant sources to the `SourceBuilder` API
+* [pipeline-api] Added support for fault tolerant sources to the `SourceBuilder` API.
 https://github.com/hazelcast/hazelcast-jet/pull/1394[#1394]
 * [core] Added support for configuring in YAML.
 https://github.com/hazelcast/hazelcast-jet/pull/1371[#1371]
