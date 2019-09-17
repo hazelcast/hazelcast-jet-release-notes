@@ -1,0 +1,103 @@
+== 3.2
+
+=== New Features
+
+* [pipeline-api] Introduced stateful mapping for Pipeline API
+which allows you to write stateful imperative codes. The use cases
+may include windows with complex definitions, e.g., a collection with
+custom rules to mutate it with data streaming through, pattern matching
+(CEP style) and general prototyping and experimentation without having to
+learn technical Jet details. See the
+link:https://docs.hazelcast.org/docs/jet/3.2/manual/#???[??? section^].
+* [pipeline-api] Introduced unit testing support with which you can test
+your Jet code without connecting external sources or sinks to the data pipeline.
+See the
+link:https://docs.hazelcast.org/docs/jet/3.2/manual/#developing-and-testing[Developing and Testing section^].
+* [core] Added the ability to query the job metrics through Job API
+and add the option to store the metrics for completed jobs.
+See the
+link:https://docs.hazelcast.org/docs/jet/3.2/manual/#metrics-monitoring[Monitor Metrics section^].
+* [s3] Added sources and sinks for Amazon AWS S3.
+See the
+link:https://docs.hazelcast.org/docs/jet/3.2/manual/#amazon-aws-s3[Amazon AWS S3 section^].
+
+=== Enhancements
+
+* [pipeline-api] Added the ability to adapt `AggregateOperation1` to Hazelcast Aggregator.
+https://github.com/hazelcast/hazelcast-jet/pull/1513[#1513]
+* [pipeline-api] Replaced the Hazelcast IMDG map/cache readers and map writer with
+faster and cooperative ones.
+https://github.com/hazelcast/hazelcast-jet/pull/1514[#1514],
+https://github.com/hazelcast/hazelcast-jet/pull/1539[#1539],
+https://github.com/hazelcast/hazelcast-jet/pull/1545[#1545]
+* [pipeline-api] Added the missing serializability checks for sources and sinks.
+https://github.com/hazelcast/hazelcast-jet/pull/1455[#1455]
+* [jet-cli] Added support for YAML configuration to CLI.
+https://github.com/hazelcast/hazelcast-jet/pull/1475[#1475]
+* [code-samples] Moved the code samples to the main Jet repository.
+https://github.com/hazelcast/hazelcast-jet/pull/1546[#1546]
+* [core] Added support for multi-graphs in DAG.
+https://github.com/hazelcast/hazelcast-jet/pull/1332[#1332]
+* [core] Added a property to configure the maximum number of job results
+to keep in the Jet cluster.
+https://github.com/hazelcast/hazelcast-jet/pull/1495[#1495]
+* [core] Replaced the job ID generator with FlakeID.
+https://github.com/hazelcast/hazelcast-jet/pull/1488[#1488]
+* [core] Updated Hazelcast IMDG version to 3.12.2.
+https://github.com/hazelcast/hazelcast-jet/pull/1515[#1515]
+* [core] Added the ability to configure both minimum and maximum
+idle time for both cooperative/non-cooperative threads.
+https://github.com/hazelcast/hazelcast-jet/pull/1507[#1507]
+* [core] Made it optional to enable or disable the metrics for a specific job.
+https://github.com/hazelcast/hazelcast-jet/pull/1509[#1509]
+* [core] Added extended information to DOT format output.
+https://github.com/hazelcast/hazelcast-jet/pull/1526[#1526]
+* [core] Enhanced the submit and join tasks to avoid using the blocking client
+threads where possible.
+https://github.com/hazelcast/hazelcast-jet/pull/1485[#1485]
+
+
+=== Fixes
+
+* [pipeline-api] Fixed an issue where the timestamp transform
+was not matching the parallelism of the upstream transform.
+https://github.com/hazelcast/hazelcast-jet/pull/1563[#1563]
+* [pipeline-api] Lowered the default local parallelism to 2 for non-cooperative
+context factory.
+https://github.com/hazelcast/hazelcast-jet/pull/1571[#1571]
+* [jet-cli] Fixed the command line interface so that the saved snapshots and running
+jobs are sorted by name and sanitized.
+https://github.com/hazelcast/hazelcast-jet/pull/1556[#1556]
+* [jet-cli] Fixed the default group name and password in `cluster.sh`; they were
+`dev` and `dev-pass` which are not Jet specific.
+https://github.com/hazelcast/hazelcast-jet/pull/1577[#1577]
+* [core] Introduced a fix for checking the system property for shutdown hook registration.
+https://github.com/hazelcast/hazelcast-jet/pull/1461[#1461]
+* [core] Fixed an issue where IMDG XML and YAML configuration could not be
+mixed and matched with Jet's XML or YAML.
+https://github.com/hazelcast/hazelcast-jet/pull/1474[#1474]
+* [core] Fixed an issue where the job resources map were being created even if it is not
+needed.
+https://github.com/hazelcast/hazelcast-jet/pull/1493[#1493]
+* [core] Fixed an issue where there was an attempt to clear the snapshot maps
+on job starts.
+https://github.com/hazelcast/hazelcast-jet/pull/1494[#1494]
+* [core] Fixed a race issue which may happen between cancellation and restarting.
+https://github.com/hazelcast/hazelcast-jet/pull/1544[#1544]
+* [core] Fixed a race issue which may happen during multiple clients calling the
+same job.
+https://github.com/hazelcast/hazelcast-jet/pull/1557[#1557]
+* [core] Fixed race issues when getting the job status and configuration
+that could result in job being reported as missing.
+https://github.com/hazelcast/hazelcast-jet/pull/1567[#1567]
+* [core] Fixed an issue where the snapshot logs were too much noisy.
+https://github.com/hazelcast/hazelcast-jet/pull/1573[#1573]
+* [core] Fixed a deadlock issue happened when many jobs are restarting
+at the same time.
+https://github.com/hazelcast/hazelcast-jet/pull/1583[#1583]
+* [core] Added more details to the exceptions if a job fails with `TopologyChangedException`.
+https://github.com/hazelcast/hazelcast-jet/pull/1595[#1595]
+* [core] Added a consistent exception if `job.join()` is called before
+or after the job is completed.
+https://github.com/hazelcast/hazelcast-jet/pull/1600[#1600],
+https://github.com/hazelcast/hazelcast-jet/pull/1612[#1612]
