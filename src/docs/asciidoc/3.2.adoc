@@ -8,7 +8,7 @@ may include windows with complex definitions, e.g., a collection with
 custom rules to mutate it with data streaming through, pattern matching
 (CEP style) and general prototyping and experimentation without having to
 learn technical Jet details. See the
-link:https://docs.hazelcast.org/docs/jet/3.2/manual/#???[??? section^].
+link:https://docs.hazelcast.org/docs/jet/3.2/manual/#stateful-mapping[Stateful Mapping section^].
 * [pipeline-api] Introduced unit testing support with which you can test
 your Jet code without connecting external sources or sinks to the data pipeline.
 See the
