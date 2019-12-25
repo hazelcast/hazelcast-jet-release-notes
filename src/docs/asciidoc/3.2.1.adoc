@@ -1,0 +1,12 @@
+== 3.2.1
+
+=== Fixes
+
+* [core] Optimized the DAG iteration during the job
+initialization for very large DAGs (>200+ vertices).
+link:https://github.com/hazelcast/hazelcast-jet/pull/1809[#1809^]
+* [core] Fixed an issue in snapshot chunking which could
+cause the snapshot to fail intermittently.
+link:https://github.com/hazelcast/hazelcast-jet/pull/1810[#1810^]
+* [core] Updated the IMDG version to 3.12.5.
+link:https://github.com/hazelcast/hazelcast-jet/pull/1809[#1812^]
