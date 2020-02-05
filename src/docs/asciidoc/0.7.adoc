@@ -1,7 +1,6 @@
-
-
 == 0.7
 
+[[features-07]]
 === New Features
 
 * [pipeline-api] Added a source builder to build custom sources. https://github.com/hazelcast/hazelcast-jet/pull/989[#989]
@@ -14,6 +13,7 @@
 * [core] Added full job elasticity with graceful shutdown, and suspend and resume. https://github.com/hazelcast/hazelcast-jet/pull/946[#946]
 * [core] Added support for exposing metrics through JMX. https://github.com/hazelcast/hazelcast-jet/pull/926[#926]
 
+[[enh-07]]
 === Enhancements
 
 * [pipeline-api] Added Tuple4 and Tuple5. https://github.com/hazelcast/hazelcast-jet/pull/964[#964]
@@ -28,6 +28,7 @@
 * [core] Improved ``Processor``s so that they are now closed as soon as the processor is completed. Also, `jobId()`, `executionId()` and `jobConfig()` are now available on `Processor.Context`. https://github.com/hazelcast/hazelcast-jet/pull/934[#934]
 * [core] Improved Watermark diagnostics logging. https://github.com/hazelcast/hazelcast-jet/pull/872[#872]
 
+[[fixes-07]]
 === Fixes
 
 * [pipeline-api] Fixed the method `mapWithMerging` which should have not used a stateful flush function. https://github.com/hazelcast/hazelcast-jet/issues/968[#968]
@@ -37,6 +38,7 @@
 * [spring] Spring context is now injected to the wrapped processors as well to enable the `@SpringAware` annotation to be processed for sinks. https://github.com/hazelcast/hazelcast-jet/issues/999[#999]
 * [spring] An `IllegalArgumentException` was thrown because the `hazelcast-jet-spring` module was adding a dependency to Hazelcast when used with Spring boot. This has been fixed so that `hazelcast-jet-spring` works out of the box. https://github.com/hazelcast/hazelcast-jet/issues/977[#977]
 
+[[bc-07]]
 === Breaking Changes
 
 * [pipeline-api] Simplified the API for co-aggregation.

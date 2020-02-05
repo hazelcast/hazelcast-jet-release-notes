@@ -1,0 +1,15 @@
+== 3.2.2
+
+[[enh-322]]
+=== Enhancements
+
+
+* [core] Updated Hazelcast IMDG version to 3.12.6. [#1908]
+link:https://github.com/hazelcast/hazelcast-jet/pull/1908[#1908^]
+
+[[fixes-322]]
+=== Fixes
+
+* [core] Fixed an issue which could lead to an older
+watermark overtaking a newer one.
+link:https://github.com/hazelcast/hazelcast-jet/pull/1882[#1882^]

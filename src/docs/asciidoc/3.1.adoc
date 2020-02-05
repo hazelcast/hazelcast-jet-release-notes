@@ -1,5 +1,6 @@
 == 3.1
 
+[[features-31]]
 === New Features
 
 * [pipeline-api] Enabled composite transforms using the `apply` operator.
@@ -12,6 +13,7 @@ https://github.com/hazelcast/hazelcast-jet/pull/1371[#1371]
 * [integration] Introduced https://github.com/hazelcast/hazelcast-jet-contrib/tree/master/influxdb[source and sink] for InfluxDB.
 * [beam] Released the first https://beam.apache.org/documentation/runners/jet/[Hazelcast Jet Beam Runner].
 
+[[enh-31]]
 === Enhancements
 
 * [pipeline-api] Added new `AggregateOperations`: `filtering` and `flatMapping`.
@@ -27,6 +29,7 @@ operator to release the memory eagerly.
 https://github.com/hazelcast/hazelcast-jet/pull/1345[#1345]
 * [kafka] Updated Kafka client to version 2.2.
 
+[[fixes-31]]
 === Fixes
 
 * [jet-cli] Improved the parsing of command line arguments for `jet.sh`.
@@ -55,6 +58,7 @@ https://github.com/hazelcast/hazelcast-jet/pull/1429[#1429]
 * [kafka] Improved the handling of `TimeoutException` in Kafka sink.
 https://github.com/hazelcast/hazelcast-jet/pull/1433[#1433]
 
+[[bc-31]]
 === Breaking Changes
 
 * [pipeline-api] Previously it was possible to close the buffer in

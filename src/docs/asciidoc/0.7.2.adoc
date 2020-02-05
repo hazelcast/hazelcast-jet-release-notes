@@ -1,14 +1,17 @@
 == 0.7.2
 
+[[features-072]]
 === New Features
 
 * [kubernetes] Added full support to run Hazelcast Jet on Kubernetes. See the https://docs.hazelcast.org/docs/jet/0.7.2/manual/index.html#deployment-using-kubernetes[Deployment using Kubernetes section] for more information.
 * [kubernetes] Introduced Hazelcast Jet Helm Charts. See the https://docs.hazelcast.org/docs/jet/0.7.2/manual/index.html#deployment-using-helm[Deployment using Helm section] for more information.
 
+[[enh-072]]
 === Enhancements
 
 * [pipeline-api] Added TopN and BottomN aggregate operations. https://github.com/hazelcast/hazelcast-jet/pull/1140[#1140]
 
+[[fixes-072]]
 === Fixes
 
 * [core] Fixed the missing config schema file in the previous release (0.7.1).

@@ -1,5 +1,6 @@
 == 3.0
 
+[[features-30]]
 === New Features
 
 * [jet-enterprise] Added support for the job upgrades which allows updating the jobs by preserving their states.
@@ -19,6 +20,7 @@ https://docs.hazelcast.org/docs/jet/3.0/manual/#jobconfig[JobConfig section].
 * [core] Updated the embedded Hazelcast IMDG version to 3.12.
 https://github.com/hazelcast/hazelcast-jet/pull/1343[#1343]
 
+[[enh-30]]
 === Enhancements
 
 * [pipeline-api] User code deployment is not required anymore, when reading from remote Hazelcast IMDG journal.
@@ -45,6 +47,7 @@ https://github.com/hazelcast/hazelcast-jet/pull/1173[#1173]
 * [core] Added the ability to reusing the same maps when taking snapshots.
 https://github.com/hazelcast/hazelcast-jet/pull/1104[#1104]
 
+[[fixes-30]]
 === Fixes
 
 * [core] Fixed the potential race during the initialization of multiple ``JetInstance``s.
@@ -62,6 +65,7 @@ https://github.com/hazelcast/hazelcast-jet/pull/1300[#1300]
 * [hadoop] Fixed the creation of `RecordWriter` to receive its own copy.
 https://github.com/hazelcast/hazelcast-jet/pull/1309[#1309]
 
+[[bc-30]]
 === Breaking Changes
 
 * [pipeline-api] Removed `TimestampedItem` and `TimestampedEntry`.
@@ -92,6 +96,7 @@ https://github.com/hazelcast/hazelcast-jet/pull/1202[#1202]
 * [core] Renamed `MetricsConfig.setMetricsForDataStructures` to `setMetricsForDataStructuresEnabled`.
 https://github.com/hazelcast/hazelcast-jet/pull/1201[#1201]
 
+[[rdf-30]]
 === Removed/Deprecated Features
 
 * [core] Group password has been deprecated and removed.

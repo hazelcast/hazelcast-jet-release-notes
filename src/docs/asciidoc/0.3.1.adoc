@@ -1,10 +1,12 @@
 == 0.3.1
 
+[[features-031]]
 === New Features
 
 * [core] The Jet cluster can be scaled up without affecting running jobs. See the
 https://docs.hazelcast.org/docs/jet/0.7/manual/#automatic-elasticity[Automatic Elasticity section] for details.
 
+[[enh-031]]
 === Enhancements
 
 * [core] Improved DAG.toString. https://github.com/hazelcast/hazelcast-jet/pull/310[#310]
@@ -19,12 +21,14 @@ https://docs.hazelcast.org/docs/jet/latest/manual/#hdfs[HDFS section] for detail
 * [kafka] Kafka connector now makes use of consumer groups. See the
 https://docs.hazelcast.org/docs/jet/latest/manual/#kafka[Kafka section].
 
+[[csi-031]]
 ==== Code Samples Improvements
 
 * [code-samples] Added Jet vs. java.util.stream benchmark to the code samples.
 * [code-samples] Added new Hadoop word count example.
 * [code-samples] Added Kafka consumer example.
 
+[[fixes-031]]
 === Fixes
 
 * [core] Remove dead and potentially racy code from async operations. https://github.com/hazelcast/hazelcast-jet/pull/320[#320]

@@ -1,5 +1,6 @@
 == 3.2.1
 
+[[fixes-321]]
 === Fixes
 
 * [core] Optimized the DAG iteration during the job

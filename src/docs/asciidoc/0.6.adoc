@@ -1,5 +1,6 @@
 == 0.6
 
+[[features-06]]
 === New Features
 
 * [pipeline-api] Windowing support and overhaul of Pipeline API to work with streaming sources. https://github.com/hazelcast/hazelcast-jet/pull/731[#731]
@@ -9,6 +10,7 @@
 * [core] Ability to restart jobs manually to make use of newly joined members. https://github.com/hazelcast/hazelcast-jet/pull/693[#693]
 * [spring] Add support for annotation and XML based spring configuration. https://github.com/hazelcast/hazelcast-jet/pull/757[#757]
 
+[[enh-06]]
 === Enhancements
 
 * [pipeline-api] Improve the method `AggregateOperations.allOf()` so that is type-safe.
@@ -28,6 +30,7 @@
 * [kafka] Kafka version updated to 1.0.0.
 * [hadoop] Hadoop version updated to 2.8.3.
 
+[[fixes-06]]
 === Fixes
 
 * [core] Avoid race between job cancellation and completion. https://github.com/hazelcast/hazelcast-jet/pull/604[#604]
@@ -40,7 +43,7 @@
 * [kafka] Kafka sink should ensure that all records are sent before snapshot. https://github.com/hazelcast/hazelcast-jet/pull/611[#611]
 * [kafka/hadoop] Package names reorganized to have better support for module systems.
 
-
+[[tc-06]]
 === Technical Changes
 
 * [pipeline-api] Grouping and aggregation in Pipeline API now are done through the methods `.groupingKey()` and `.aggregate()`.

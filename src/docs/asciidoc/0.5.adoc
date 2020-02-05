@@ -1,5 +1,6 @@
 == 0.5
 
+[[features-05]]
 === New Features
 
 * [core] Support for in-memory snapshots and at-least and exactly-once processing. https://github.com/hazelcast/hazelcast-jet/pull/500[#500]
@@ -7,6 +8,7 @@
 * [core] Improved Jet job lifecycle management including auto-restart. https://github.com/hazelcast/hazelcast-jet/pull/492[#492]
 * [core] Event journal streaming source for Map and Cache. https://github.com/hazelcast/hazelcast-jet/pull/487[#487]
 
+[[enh-05]]
 === Enhancements
 
 * [core] Add `ProcessorMetaSupplier.complete()` method to support global cleanup. https://github.com/hazelcast/hazelcast-jet/pull/571[#571]
@@ -21,6 +23,7 @@
 * [kafka] Add optional projection function to Kafka reader. https://github.com/hazelcast/hazelcast-jet/pull/534[#534]
 * [kafka] Add snapshotting support for Kafka reader. https://github.com/hazelcast/hazelcast-jet/pull/500[#500]
 
+[[csi-05]]
 ==== Code Samples Improvements
 
 * Overall module reorganization roughly divided to code samples using Pipeline API and Core API.
@@ -29,6 +32,7 @@
 * New code samples illustrating the new event journal and fault tolerance features.
 * New code samples showing how to use HDFS with `java.util.stream`.
 
+[[fixes-05]]
 === Fixes
 
 * [core] The method `Job.getJobStatus()` does not reflect actual status during cancellation. https://github.com/hazelcast/hazelcast-jet/pull/580[#580]

@@ -1,5 +1,6 @@
 == 0.5.1
 
+[[fixes-051]]
 === Fixes
 
 * [pipeline-api] Generated vertex names are now deterministic instead of random. https://github.com/hazelcast/hazelcast-jet/pull/623[#623]
