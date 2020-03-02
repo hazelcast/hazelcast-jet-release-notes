@@ -1,0 +1,145 @@
+== 4.0
+
+[[features-40]]
+=== New Features
+
+* [pipeline-api] Added support for calling a Python user-defined function within a pipeline.
+See the
+link:https://docs.hazelcast.org/docs/jet/4.0/manual/#map-using-python[Map Using Python section^].
+* [pipeline-api] Enabled the client to collect the results of a job it submitted through observables.
+https://github.com/hazelcast/hazelcast-jet/pull/1729[#1729]
+* [pipeline-api] Added support for user-defined metrics. [#1692]
+See the
+link:https://docs.hazelcast.org/docs/jet/4.0/manual/#user-metrics[User Defined Metrics section^].
+* [pipeline-api] Added the batched version of async mapping using service (previously context).
+https://github.com/hazelcast/hazelcast-jet/pull/1803[#1803], https://github.com/hazelcast/hazelcast-jet/pull/1929[#1929]
+https://github.com/hazelcast/hazelcast-jet/pull/1552[#1552]
+* [core] Added support for the creation of Jet blue/green client (Enterprise Edition only).
+See the link:https://docs.hazelcast.org/docs/jet/4.0/manual/#configure-blue-green-client-enterprise-only[Configure Blue/Green Client section^].
+[#1658]
+* [core] Added two-phase commit (2PC) support to snapshot mechanism for end-to-end exactly-once processing.
+https://github.com/hazelcast/hazelcast-jet/pull/1438[#1438]
+* [core] Added built-in metrics for job-lifecycle and snapshot statistics.
+https://github.com/hazelcast/hazelcast-jet/pull/1715[#1715]
+* [jms] JMS Source now supports at-least-once and exactly-once processing.
+https://github.com/hazelcast/hazelcast-jet/pull/1804[#1804]
+* [kafka] Added exactly-once support to Kafka and File sinks.
+https://github.com/hazelcast/hazelcast-jet/pull/1654[#1654], https://github.com/hazelcast/hazelcast-jet/pull/1655[#1655]
+* [kafka] Added the link:https://github.com/hazelcast/hazelcast-jet-contrib/tree/master/kafka-connect[Kafka Connect^] source.
+* [integration] Added the Debezium link:https://github.com/hazelcast/hazelcast-jet-contrib/tree/master/debezium[connector^] for Change Data Capture.
+
+[[enh-40]]
+=== Enhancements
+
+* [pipeline-api] Exposed the read function on File reader.
+https://github.com/hazelcast/hazelcast-jet/pull/1849[#1849]
+* [pipeline-api] Made empty traverser more efficient.
+https://github.com/hazelcast/hazelcast-jet/pull/1700[#1700]
+* [pipeline-api] Updated the default parallelism of map/cache sources and sinks to 1.
+https://github.com/hazelcast/hazelcast-jet/pull/1774[#1774]
+* [pipeline-api] Introduced ability to add JARs in ZIP files as job resources.
+https://github.com/hazelcast/hazelcast-jet/pull/1681[#1681]
+* [pipeline-api] Improved `StatefulMapTransform` so that it evicts all items on the job completion.
+https://github.com/hazelcast/hazelcast-jet/pull/1861[#1861]
+* [core] Improved default logging experience.
+https://github.com/hazelcast/hazelcast-jet/pull/1948[#1948]
+* [core] Added a convenience method to simplify building the Jet configurations inline.
+https://github.com/hazelcast/hazelcast-jet/pull/1714[#1714]
+* [core] Parallelized the tasklet initialization.
+https://github.com/hazelcast/hazelcast-jet/pull/1740[#1740]
+* [core] Added the option to specify unicast routing policy for DAG edges.
+https://github.com/hazelcast/hazelcast-jet/pull/1766[#1766]
+* [hadoop] Added support for using the new Hadoop API in Hadoop Sources/Sinks.
+https://github.com/hazelcast/hazelcast-jet/pull/1636[#1636]
+* [spring] Added support for `mapUsingService` to use the Spring beans directly.
+https://github.com/hazelcast/hazelcast-jet/pull/1642[#1642]
+* [distribution] Enabled automatic importing of the modules when starting Jet from JDK9+.
+https://github.com/hazelcast/hazelcast-jet/pull/1737[#1737]
+* [jet-cli] Added daemon mode and rolling file logger.
+https://github.com/hazelcast/hazelcast-jet/pull/1783[#1783]
+* [jet-cli] Introduced an option to pick the main class from JAR files.
+https://github.com/hazelcast/hazelcast-jet/pull/1800[#1800]
+* [jet-cli] Enabled selecting an entry class when submitting a job from the CLI.
+https://github.com/hazelcast/hazelcast-jet/pull/1796[#1796]
+* [documentation] Enhanced the Hadoop JARs and Classpath content in the Reference Manual.
+https://github.com/hazelcast/hazelcast-jet/pull/1830[#1830]
+* [documentation] Added content to the Reference Manual to explain how to parametrize jobs when submitting them using `jet.sh`.
+https://github.com/hazelcast/hazelcast-jet/pull/1794[#1794]
+* [documentation] Documented the S3 sink behavior and limitation for streaming jobs.
+https://github.com/hazelcast/hazelcast-jet/pull/1795[#1795]
+* [code-samples] Added examples for various Cloud Object Storage formats using Hadoop.
+https://github.com/hazelcast/hazelcast-jet/pull/1623[#1623]
+* [demos] Added H2O ML Model Inference link:https://github.com/hazelcast/hazelcast-jet-demos/tree/master/h2o-breast-cancer-classification[demo^].
+
+[[fixes-40]]
+=== Fixes
+
+* [pipeline-api] Fixed the inconsistencies with `@Nonnull` and `@Nullable` annotations.
+https://github.com/hazelcast/hazelcast-jet/pull/1675[#1675]
+* [pipeline-api] Fixed an issue where merging of timestamped and non-timestamped streams was failing.
+https://github.com/hazelcast/hazelcast-jet/pull/1776[#1776]
+* [core] Fixed long job start times with a very large graph.
+https://github.com/hazelcast/hazelcast-jet/pull/1806[#1806], https://github.com/hazelcast/hazelcast-jet/pull/1825[#1825]
+* [core] Fixed the deserialization exception for `Object[]` when using a remote map sink.
+https://github.com/hazelcast/hazelcast-jet/pull/1444[#1444]
+* [core] Changed the `join` job operation to not to be retried on failure.
+https://github.com/hazelcast/hazelcast-jet/pull/1656[#1656]
+* [core] Fixed `OperationTimeoutException` when `join` request is sent to the non-master member.
+https://github.com/hazelcast/hazelcast-jet/pull/1661[#1661]
+* [core] Fixed the race condition in the job coordination service.
+https://github.com/hazelcast/hazelcast-jet/pull/1680[#1680]
+* [core] Fixed the issue in JDBC sink when writing timestamps.
+https://github.com/hazelcast/hazelcast-jet/pull/1682[#1682]
+* [core] Added automatic retry for the job related methods when the master is going down.
+https://github.com/hazelcast/hazelcast-jet/pull/1624[#1624]
+* [core] Fixed the "Buffer full" error when saving large snapshots.
+https://github.com/hazelcast/hazelcast-jet/pull/1769[#1769]
+* [core] Fixed the fragmentation type error in saving snapshots.
+https://github.com/hazelcast/hazelcast-jet/pull/1771[#1771]
+* [core] Fixed the metrics related warning messages during startup.
+https://github.com/hazelcast/hazelcast-jet/pull/1699[#1699]
+* [core] Fixed an issue causing the emission of old watermarks.
+https://github.com/hazelcast/hazelcast-jet/pull/1879[#1879]
+* [core] Removed the checked exceptions from `JobConfig`.
+https://github.com/hazelcast/hazelcast-jet/pull/1896[#1896]
+* [kafka] Fixed the issue of auto-committing to Kafka when not using at-least/exactly-once.
+https://github.com/hazelcast/hazelcast-jet/pull/1934[#1934]
+* [jet-cli] Made the error messages more descriptive when submitting through the command line.
+https://github.com/hazelcast/hazelcast-jet/pull/1951[#1951]
+* [jet-cli] Fixed the `jet.sh` submit to not to report error messages as `NULL`.
+https://github.com/hazelcast/hazelcast-jet/pull/1717[#1717]
+
+[[bc-40]]
+=== Breaking Changes
+
+* [pipeline-api] Renamed `xUsingContext` to `xUsingService`.
+https://github.com/hazelcast/hazelcast-jet/pull/1696[#1696]
+* [pipeline-api] Removed the `flatMap`/`filterUsingServiceAsync` methods.
+https://github.com/hazelcast/hazelcast-jet/pull/1919[#1919]
+* [pipeline-api] Made `ProcessorSupplier.Context` available in services.
+https://github.com/hazelcast/hazelcast-jet/pull/1891[#1891]
+* [pipeline-api] Renamed `Pipeline.drawFrom`/`drainTo` to `readFrom`/`writeTo`.
+https://github.com/hazelcast/hazelcast-jet/pull/1735[#1735]
+* [core] Updated Jet to use Hazelcast IMDG 4.0.
+https://github.com/hazelcast/hazelcast-jet/pull/1483[#1483],
+https://github.com/hazelcast/hazelcast-jet/pull/1552[#1552],
+https://github.com/hazelcast/hazelcast-jet/pull/1695[#1695]
+* [core] `JobConfig.resourceConfig` is now private.
+https://github.com/hazelcast/hazelcast-jet/pull/1841[#1841]
+* [core] Replaced `JetBoostrap.getInstance()` with `Jet.bootstrappedInstance()`.
+https://github.com/hazelcast/hazelcast-jet/pull/1827[#1827]
+* [core] Introduced non-classpath resource upload mechanism.
+https://github.com/hazelcast/hazelcast-jet/pull/1824[#1824]
+* [core] Added instance-wide lifecycle management to `ServiceFactory` (previously `ContextFactory`).
+https://github.com/hazelcast/hazelcast-jet/pull/1787[#1787],
+https://github.com/hazelcast/hazelcast-jet/pull/1797#1797]
+* [core] Removed the nested wildcards in `flatMap`.
+https://github.com/hazelcast/hazelcast-jet/pull/1736[#1736]
+* [core] Context object is now used instead of writer in `SinkBuilder`.
+https://github.com/hazelcast/hazelcast-jet/pull/1785[#1785]
+* [core] Some options from JMS source and sink have been removed to support exactly-once processing.
+https://github.com/hazelcast/hazelcast-jet/pull/1804[#1804]
+* [hadoop] Hadoop source/sink has been named as `HadoopSources.inputFormat/outputFormat()`.
+https://github.com/hazelcast/hazelcast-jet/pull/1636[#1636]
+* [licensing] Moved the connectors and plugins to the Hazelcast Community License.
+https://github.com/hazelcast/hazelcast-jet/pull/1892[#1892]
