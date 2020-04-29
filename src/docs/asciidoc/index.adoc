@@ -20,11 +20,21 @@ image::logo_dark.png[]
 
 = Hazelcast Jet Release Notes
 
-Welcome to the Hazelcast Jet Release Notes. This document includes the new features, enhancements and fixed issues for Hazelcast Jet releases. Select a release number in the table of contents.
+Welcome to the Hazelcast Jet Release Notes.
+This document lists the new features, enhancements,
+fixed issues and breaking changes for Hazelcast Jet releases.
+Select a release number in the table of contents.
 
-The linked numbers refer to the issue numbers in Hazelcast Jet GitHub repository. The labels in the square brackets refer to the respective Hazelcast Jet module.
+The items in the lists follow the below format:
+
+`[Jet module name][design document][description][contributor name, #pull request or issue number in Jet GitHub repository]`
+
+`[design document]` is shown for major features that have an associated technical design document.
+
 
 :numbered!:
+
+include::4.1.adoc[]
 
 include::4.0.adoc[]
 
